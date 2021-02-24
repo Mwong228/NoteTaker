@@ -16,11 +16,11 @@ A web application that allows a user to save and delete entries made on the web 
 NPM install
 
 ## Demo
-* Watch a Demonstration
+* [Demo Video](https://drive.google.com/file/d/1pBlmMpXwfhEo6hvS2BkdE0xEZ71F9p79/view)
 
 
 ## Screenshot
-
+![pic](https://i.gyazo.com/b2012f5bd1604e3e61af2e7454714e4b.png)
 
 ## License
 MIT
