@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const fs = require('fs')
 const uuid = require('uuid')
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //loads html pages using public folder 
 app.use(express.static('public'))
