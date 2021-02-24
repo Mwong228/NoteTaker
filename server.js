@@ -14,15 +14,20 @@ const dbFile = './db/db.json'
 const list = fs.existsSync(dbFile)?JSON.parse(fs.readFileSync(dbFile)):[]
 
 app.get('/api/notes', function(req, res){
-    res.sendFile(list)
+    res.send(list)
 })
 
 app.post('/api/notes', function(req, res){
-    list.push({id: uuid(), title: req.body.title, text: req.body.text})
+    list.push({id: uuid.v4(), title: req.body.title, text: req.body.text})
+    fs.writeFileSync(dbFile, JSON.stringify(list))
+    res.redirect('/notes')
 })
 
 app.delete('/api/notes/:id', function(req, res){
-
+    saved = list.filter(entry => entry.id === parseInt(req.params.id)).indexOf(req.params.id)
+    list.splice(saved, 1)
+    fs.writeFileSync(dbFile, JSON.stringify(list))
+    res.redirect('/notes')
 })
 
 app.listen(PORT, function(){
